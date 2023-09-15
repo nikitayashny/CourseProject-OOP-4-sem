@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="Client.Views.Header"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Client"
+             mc:Ignorable="d" 
+             d:DesignHeight="87" d:DesignWidth="1200"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Background="White">
+    
+    <Grid>
+
+        <StackPanel Orientation="Horizontal">
+            
+            <Button Template="{DynamicResource btTemplate}" 
+                    Style="{DynamicResource ButtonHeader}" 
+                    Width="150" 
+                    Click="Open_Home_Click">
+                
+                <Image Source="C:\Users\User\Desktop\CourseProjectWPF\img\logoHeader.png"/>
+                
+            </Button>
+
+            <Button Style="{DynamicResource ButtonHeader}" 
+                    Template="{DynamicResource btTemplate}" 
+                    Content="{DynamicResource m_WHATSNEW}" 
+                    Click="Open_WhatsNew_Click"/>
+
+            <Button Style="{DynamicResource ButtonHeader}" 
+                    Template="{DynamicResource btTemplate}" 
+                    Content="{DynamicResource m_CATALOG}" 
+                    Click="Open_Catalog_Click"/>
+            
+            <Button Style="{DynamicResource ButtonHeader}" 
+                    Template="{DynamicResource btTemplate}" 
+                    Content="{DynamicResource m_DELIVERY}" 
+                    Click="Open_Delivery_Click"/>
+
+            <Button Style="{DynamicResource ButtonHeader}" 
+                    Template="{DynamicResource btTemplate}" 
+                    Content="{DynamicResource m_ABOUTUS}" 
+                    Click="Open_AboutUs_Click"/>
+            
+            <TextBox x:Name="TextBox_Search" 
+                     Width="110" 
+                     Height="40" 
+                     materialDesign:HintAssist.Hint="{DynamicResource m_Search}" 
+                     Padding="5 0 0 0" 
+                     FontSize="20"/>
+            
+            <Button Style="{DynamicResource ButtonImage}" 
+                    Template="{DynamicResource btTemplate}" 
+                    Click="Open_Search_Click">
+                
+                <Image Source="C:\Users\User\Desktop\CourseProjectWPF\img\UserSearch.png" 
+                       Width="24" 
+                       Height="24" />
+                
+            </Button>
+            
+            <Button Style="{DynamicResource ButtonImage}" 
+                    Template="{DynamicResource btTemplate}" 
+                    Click="Open_Profile_Click">
+                
+                <Image Source="C:\Users\User\Desktop\CourseProjectWPF\img\profile.png" 
+                       Width="24" 
+                       Height="24"/>
+                
+            </Button>
+            
+            <Button Style="{DynamicResource ButtonImage}" 
+                    Template="{DynamicResource btTemplate}" 
+                    Click="Open_Favorites_Click">
+                
+                <Image Source="C:\Users\User\Desktop\CourseProjectWPF\img\like.png" 
+                       Width="24" 
+                       Height="24"/>
+                
+            </Button>
+            
+            <Button Style="{DynamicResource ButtonImage}" 
+                    Template="{DynamicResource btTemplate}" 
+                    Click="Open_Basket_Click">
+                
+                <Image Source="C:\Users\User\Desktop\CourseProjectWPF\img\shoppingBag.png" 
+                       Width="24" 
+                       Height="24"/>
+                
+            </Button>
+            
+        </StackPanel>
+        
+    </Grid>
+    
+</UserControl>

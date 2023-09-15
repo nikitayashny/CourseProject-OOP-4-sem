@@ -1,0 +1,167 @@
+﻿<Window x:Class="Admin.Orders"
+        x:Name="windowOrders"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Admin"
+        mc:Ignorable="d"
+        Title="Orders" Height="450" Width="1100"
+        Cursor="C:\Users\User\Desktop\ООТПиСП\laba4\laba4\1.cur"
+        Icon="C:\Users\User\Desktop\ООТПиСП\laba4\laba4\logo.png">
+    
+    <Grid HorizontalAlignment="Left">
+
+        <StackPanel Orientation="Horizontal" 
+                    VerticalAlignment="Top">
+            
+            <ListView x:Name="listviewOrders" 
+                      Width="870">
+            <ListView.View>
+                
+                <GridView>
+                    
+                    <GridViewColumn Header="id"  
+                                    Width="100">
+                        <GridViewColumn.CellTemplate>
+                            
+                            <DataTemplate>
+                                
+                                <StackPanel>
+                                    
+                                    <TextBlock x:Name="TextBlock_id" 
+                                               Text="{Binding id}"/>
+                                    
+                                </StackPanel>
+                                
+                            </DataTemplate>
+                            
+                        </GridViewColumn.CellTemplate>
+                        
+                    </GridViewColumn>
+                    
+                    <GridViewColumn Header="login"  
+                                    Width="150">
+                        
+                        <GridViewColumn.CellTemplate>
+                            
+                            <DataTemplate>
+                                
+                                <StackPanel>
+                                    
+                                    <TextBlock x:Name="TextBlock_login" 
+                                               Text="{Binding login}"/>
+                                    
+                                </StackPanel>
+                                
+                            </DataTemplate>
+                            
+                        </GridViewColumn.CellTemplate>
+                        
+                    </GridViewColumn>
+                    
+                    <GridViewColumn Header="product name"  
+                                    Width="150">
+                        
+                        <GridViewColumn.CellTemplate>
+                            
+                            <DataTemplate>
+                                
+                                <StackPanel>
+                                    
+                                    <TextBlock x:Name="TextBlock_product_name" 
+                                               Text="{Binding product_name}"/>
+                                </StackPanel>
+                                
+                            </DataTemplate>
+                            
+                        </GridViewColumn.CellTemplate>
+                        
+                    </GridViewColumn>
+                    
+                    <GridViewColumn Header="holder name"  
+                                    Width="150">
+                        
+                        <GridViewColumn.CellTemplate>
+                            
+                            <DataTemplate>
+                                
+                                <StackPanel>
+                                    
+                                    <TextBlock x:Name="TextBlock_holder_name" 
+                                               Text="{Binding holder_name}"/>
+                                </StackPanel>
+                                
+                            </DataTemplate>
+                            
+                        </GridViewColumn.CellTemplate>
+                        
+                    </GridViewColumn>
+                    
+                        <GridViewColumn Header="date"  
+                                        Width="150">
+                            
+                            <GridViewColumn.CellTemplate>
+                                
+                                <DataTemplate>
+                                    
+                                    <StackPanel>
+                                        
+                                        <TextBlock x:Name="TextBlock_date" 
+                                                   Text="{Binding date}"/>
+                                        
+                                    </StackPanel>
+                                    
+                                </DataTemplate>
+                                
+                            </GridViewColumn.CellTemplate>
+                            
+                        </GridViewColumn>
+                    
+                        <GridViewColumn Header="status"  
+                                        Width="150">
+                            
+                        <GridViewColumn.CellTemplate>
+                            
+                            <DataTemplate>
+                                
+                                <StackPanel>
+                                    
+                                    <TextBlock x:Name="TextBlock_status" 
+                                               Text="{Binding status}"/>
+                                    
+                                </StackPanel>
+                                
+                            </DataTemplate>
+                            
+                        </GridViewColumn.CellTemplate>
+                            
+                    </GridViewColumn>
+                    
+                </GridView>
+                
+            </ListView.View>
+                
+        </ListView>
+            
+            <StackPanel Margin="20 60 0 0">
+                
+                <Button Width="130" Height="30" Margin="0 0 0 20" Content="Accept" Command="{Binding Accept, ElementName=windowOrders, Mode=OneWay}"></Button>
+                
+                <Button Width="130" Height="30" Margin="0 0 0 20" Content="Done" Command="{Binding Done, ElementName=windowOrders, Mode=OneWay}"></Button>
+                
+                <Button Width="130" Height="30" Margin="0 0 0 20" Content="Sort By Date" Command="{Binding SortByDate, ElementName=windowOrders, Mode=OneWay}"></Button>
+                
+                <Button Width="130" Height="30" Margin="0 0 0 20" Content="Show Waitings" Command="{Binding ShowWaitings, ElementName=windowOrders, Mode=OneWay}"></Button>
+                
+                <Button Width="130" Height="30" Margin="0 0 0 20" Content="Show Accepted" Command="{Binding ShowAccepted, ElementName=windowOrders, Mode=OneWay}"></Button>
+                
+                <Button Width="130" Height="30" Margin="0 0 0 20" Content="Show Done" Command="{Binding ShowDone, ElementName=windowOrders, Mode=OneWay}"></Button>
+            
+            </StackPanel>
+       
+        </StackPanel>
+        
+    </Grid>
+    
+</Window>

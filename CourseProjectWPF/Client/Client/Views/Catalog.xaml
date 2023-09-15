@@ -1,0 +1,190 @@
+﻿<Page x:Class="Client.Views.Catalog"
+      x:Name="pageCatalog"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Client.Views"
+      mc:Ignorable="d" 
+      Title="Catalog">
+
+    <Grid>
+
+        <ListView x:Name="listviewProducts" 
+                  Width="1018" 
+                  Grid.Row="1"             
+                  SelectionMode="Extended">
+
+            <ListView.ItemsPanel>
+
+                <ItemsPanelTemplate>
+
+                    <WrapPanel Orientation="Horizontal" 
+                               IsItemsHost="True" 
+                               Width="1000" />
+
+                </ItemsPanelTemplate>
+
+            </ListView.ItemsPanel>
+
+            <ListView.ItemContainerStyle>
+
+                <Style TargetType="ListViewItem">
+
+                    <EventSetter Event="MouseDoubleClick" 
+                                 Handler="OnMouseDoubleClick"/>
+                    
+                </Style>
+
+            </ListView.ItemContainerStyle>
+
+            <ListView.View>
+
+                <GridView>
+
+                    <GridViewColumn Header="{DynamicResource m_ALL_COLLECTIONS}" 
+                                    Width="230">
+
+                        <GridViewColumn.CellTemplate>
+
+                            <DataTemplate>
+
+                                <StackPanel>
+
+                                    <Image Source="{Binding picture}" 
+                                           Style="{DynamicResource PictureCatalog}"/>
+
+                                    <TextBlock x:Name="TextBlock_name" 
+                                               Text="{Binding name}" 
+                                               FontWeight="Bold"/>
+
+                                    <TextBlock TextWrapping="Wrap">      
+                                        
+                                            <Run Text="{Binding price}"/>
+                                            <Run Text="$"/>
+
+                                    </TextBlock>
+
+                                </StackPanel>
+
+                            </DataTemplate>
+
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
+
+                </GridView>
+
+            </ListView.View>
+
+        </ListView>
+
+
+        <!-- Full Decription -->
+        <ScrollViewer x:Name="FullDescription" 
+                      Style="{DynamicResource ScrollViewerDefault}" 
+                      Visibility="Collapsed">
+
+            <ListView x:Name="listviewFull"
+                      >
+                
+                
+
+                <ListView.View>
+
+                    <GridView>
+
+                        <GridViewColumn Width="500">
+
+                            <GridViewColumn.CellTemplate>
+
+                                <DataTemplate>
+
+                                    <Image Source="{Binding Path=picture}" 
+                                           Style="{DynamicResource PictureFull}"/>
+
+                                </DataTemplate>
+
+                            </GridViewColumn.CellTemplate>
+
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="600">
+
+                            <GridViewColumn.CellTemplate>
+
+                                <DataTemplate>
+
+                                    <StackPanel>
+
+                                        <TextBlock Style="{DynamicResource TextBlockNameFull}">         
+                                        
+                                            <Run Text="{Binding Path=name}"/>
+
+                                        </TextBlock>
+
+                                        <TextBlock Style="{DynamicResource TextBlockFull}">                              
+                                        
+                                            <Run Text="{Binding Path=price}"/>
+                                            <Run Text="$"/>
+
+                                        </TextBlock>
+
+                                        <TextBlock Style="{DynamicResource TextBlockFull}">
+                                        
+                                            <Run Text="{Binding Path=color}"/>
+
+                                        </TextBlock>
+
+                                        <TextBlock Style="{DynamicResource TextBlockFull}">  
+                                        
+                                            <Run Text="Size: "/>
+                                            <Run Text="{Binding Path=size}"/>
+
+                                        </TextBlock>
+
+                                        <StackPanel Orientation="Horizontal" 
+                                                    Margin="0 50 0 0">
+
+                                            <Button Command="{Binding DataContext.AddToBasket, RelativeSource={RelativeSource AncestorType=Page}}"
+                                                    CommandParameter="{Binding ElementName=pageCatalog}"
+                                                    Style="{DynamicResource ButtonAddToBasket}" 
+                                                    Content="{DynamicResource m_AddToCart}"
+                                                    Template="{DynamicResource btTemplate}"/>
+
+                                            <Button Command="{Binding DataContext.AddToFavorites, RelativeSource={RelativeSource AncestorType=Page}}"
+                                                    CommandParameter="{Binding ElementName=pageCatalog}"
+                                                    Style="{DynamicResource ButtonAddToFavorite}" 
+                                                    Template="{DynamicResource btTemplate}">
+
+                                                <Image Source="C:\Users\User\Desktop\CourseProjectWPF\img\like.png" 
+                                                       Style="{DynamicResource Heart}"/>
+
+                                            </Button>
+
+                                        </StackPanel>
+
+                                        <Button Command="{Binding DataContext.OpenCatalog, RelativeSource={RelativeSource AncestorType=Page}}"
+                                                CommandParameter="{Binding ElementName=pageCatalog}"
+                                                Style="{DynamicResource ButtonBachToShopping}" 
+                                                Template="{DynamicResource btTemplate}" 
+                                                Content="{DynamicResource m_BackToShopping}"/>
+
+                                    </StackPanel>
+
+                                </DataTemplate>
+
+                            </GridViewColumn.CellTemplate>
+
+                        </GridViewColumn>
+
+                    </GridView>
+
+                </ListView.View>
+
+            </ListView>
+
+        </ScrollViewer>
+        
+    </Grid>
+</Page>

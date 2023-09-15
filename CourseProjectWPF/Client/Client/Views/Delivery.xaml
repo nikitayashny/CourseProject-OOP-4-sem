@@ -1,0 +1,283 @@
+﻿<Page x:Class="Client.Views.Delivery"
+      x:Name="pageDelivery"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Client.Views"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      Title="Delivery">
+
+    <Grid>
+
+        <ScrollViewer x:Name="DeliveryViewer" 
+                      Style="{DynamicResource ScrollViewerDefault}">
+
+            <StackPanel Orientation="Horizontal">
+
+                <Border x:Name="Border_ShippingAddress"  
+                        Width="600">
+
+                    <StackPanel VerticalAlignment="Center" 
+                                HorizontalAlignment="Center">
+
+                        <TextBlock Text="{DynamicResource m_Shipping_Address}" 
+                                   FontSize="30" 
+                                   FontWeight="SemiBold" 
+                                   Margin="0 0 0 30"/>
+
+                        <TextBox x:Name="TextBox_Name" 
+                                 Width="450" 
+                                 Height="40" 
+                                 materialDesign:HintAssist.Hint="{DynamicResource m_Name}" 
+                                 BorderBrush="Black" 
+                                 BorderThickness="2" 
+                                 FontSize="18" 
+                                 Margin="0 0 0 10" 
+                                 Padding="10 0 0 0"/>
+
+                        <TextBox x:Name="TextBox_Address"  
+                                 Width="450" 
+                                 Height="40" 
+                                 materialDesign:HintAssist.Hint="{DynamicResource m_Address}" 
+                                 BorderBrush="Black" 
+                                 FontSize="18" 
+                                 BorderThickness="2" 
+                                 Margin="0 0 0 10" 
+                                 Padding="10 0 0 0"/>
+
+                        <TextBox x:Name="TextBox_Phone"  
+                                 Width="450" 
+                                 Height="40" 
+                                 materialDesign:HintAssist.Hint="{DynamicResource m_Phone}" 
+                                 BorderBrush="Black" 
+                                 FontSize="18" 
+                                 BorderThickness="2" 
+                                 Margin="0 0 0 40" 
+                                 Padding="10 0 0 0"/>
+
+                        <Button Command="{Binding DataContext.GoToPayment, RelativeSource={RelativeSource AncestorType=Page}}"
+                                CommandParameter="{Binding ElementName=pageDelivery}"
+                                Content="{DynamicResource m_GoToPayment}" 
+                                Template="{DynamicResource btTemplate}" 
+                                Style="{DynamicResource ButtonLogIn}"/>
+
+                    </StackPanel>
+
+                </Border>
+
+                <Border x:Name="Image_ShippingAddress" 
+                        Width="600">
+
+                    <StackPanel VerticalAlignment="Center">
+
+                        <Image Source="C:\Users\User\Desktop\CourseProjectWPF\img\bg_delivery.png" />
+
+                    </StackPanel>
+
+                </Border>
+
+                <Border x:Name="Border_Payment" 
+                        Width="600" 
+                        Visibility="Collapsed">
+
+                    <StackPanel>
+
+                        <Border x:Name="infoDelivery" 
+                                Margin="77 40 0 40" 
+                                HorizontalAlignment="Left">
+
+                            <StackPanel>
+
+                                <TextBlock x:Name="TextBlock_Name" 
+                                           FontSize="20" />
+
+                                <TextBlock x:Name="TextBlock_Address" 
+                                           FontSize="15"/>
+
+                                <TextBlock x:Name="TextBlock_Phone" 
+                                           FontSize="15"/>
+
+                            </StackPanel>
+
+                        </Border>
+
+                        <StackPanel VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center">
+
+                            <TextBlock Text="{DynamicResource m_Payment_Data}" 
+                                       Style="{DynamicResource PaymentData}"/>
+
+                            <TextBox x:Name="TextBox_CardNumber" 
+                                     Width="450" 
+                                     Height="40" 
+                                     materialDesign:HintAssist.Hint="{DynamicResource m_CardNumber}" 
+                                     BorderBrush="Black" 
+                                     BorderThickness="2" 
+                                     FontSize="18" 
+                                     Margin="0 0 0 10"
+                                     Padding="10 0 0 0"/>
+
+                            <TextBox x:Name="TextBox_HolderName"  
+                                     Width="450" 
+                                     Height="40" 
+                                     materialDesign:HintAssist.Hint="{DynamicResource m_HolderName}" 
+                                     BorderBrush="Black" 
+                                     FontSize="18" 
+                                     BorderThickness="2" 
+                                     Margin="0 0 0 10" 
+                                     Padding="10 0 0 0"/>
+
+                            <StackPanel Orientation="Horizontal" 
+                                        Width="450" 
+                                        Margin="0 0 0 40">
+
+                                <TextBox x:Name="TextBox_ExpirationDate"  
+                                         Width="220" 
+                                         Height="40" 
+                                         materialDesign:HintAssist.Hint="{DynamicResource m_ExpirationDate}" 
+                                         BorderBrush="Black" 
+                                         FontSize="18" 
+                                         BorderThickness="2" 
+                                         Margin="0 0 10 0"  
+                                         Padding="10 0 0 0"/>
+
+                                <TextBox x:Name="TextBox_CVV"  
+                                         Width="220" 
+                                         Height="40" 
+                                         materialDesign:HintAssist.Hint="{DynamicResource m_CVV}"
+                                         BorderBrush="Black" 
+                                         FontSize="18" 
+                                         BorderThickness="2" 
+                                         Padding="10 0 0 0"/>
+
+                            </StackPanel>
+
+                            <Button Command="{Binding DataContext.PayNow, RelativeSource={RelativeSource AncestorType=Page}}"
+                                    CommandParameter="{Binding ElementName=pageDelivery}"
+                                    Content="{DynamicResource m_PayNow}" 
+                                    Template="{DynamicResource btTemplate}"
+                                    Style="{DynamicResource ButtonLogIn}"/>
+                            
+                            <StackPanel Orientation="Horizontal">
+                                
+                                <TextBox x:Name="TextBox_Review"
+                                        Width="350" 
+                                        Height="40" 
+                                        materialDesign:HintAssist.Hint="{DynamicResource m_Review}"
+                                        Margin="0 100 0 0"
+                                        FontSize="18"
+                                        BorderBrush="Black" 
+                                        BorderThickness="2"
+                                        Padding="10 0 0 0"/>
+
+                                <Button Margin="0 100 0 0" 
+                                        Width="100" 
+                                        Content="Send" 
+                                        Height="40" 
+                                        FontSize="18"  
+                                        Template="{DynamicResource btTemplate}"
+                                        Style="{DynamicResource ButtonLogIn}"
+                                        Command="{Binding DataContext.Send, RelativeSource={RelativeSource AncestorType=Page}}"
+                                        CommandParameter="{Binding ElementName=pageDelivery}"/>
+
+                            </StackPanel>
+                            
+
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </Border>
+
+                <Border x:Name="Image_Payment" 
+                        Width="600" 
+                        Visibility="Collapsed">
+
+                    
+                        <ListView x:Name="listviewDelivery" 
+                              Width="600" 
+                              HorizontalAlignment="Left">
+
+                        <ListView.View>
+
+                            <GridView>
+
+                                <GridViewColumn Width="200">
+
+                                    <GridViewColumn.CellTemplate>
+
+                                        <DataTemplate>
+
+                                            <Image Source="{Binding Path=picture}"/>
+
+                                        </DataTemplate>
+
+                                    </GridViewColumn.CellTemplate>
+
+                                </GridViewColumn>
+
+                                <GridViewColumn Width="300">
+
+                                    <GridViewColumn.CellTemplate>
+
+                                        <DataTemplate>
+
+                                            <StackPanel>
+
+                                                <TextBlock x:Name="Basket_name" 
+                                                           Text="{Binding Path=name}" 
+                                                           Style="{DynamicResource TextBlockFirstBasket}">  
+                                                    
+                                                    <Run Text=" "/>
+                                                    <Run Text="{Binding Path=price}" 
+                                                         FontWeight="Bold" 
+                                                         FontSize="20"/>
+                                                    <Run Text="$" 
+                                                         FontWeight="Bold" 
+                                                         FontSize="20"/>
+
+                                                </TextBlock>
+
+                                                <TextBlock Style="{DynamicResource TextBlockBasket}" 
+                                                           Margin="0 30 0 0">
+                                                    
+                                                    <Run Text="{DynamicResource m_Size:}"/>
+                                                    <Run Text="{Binding Path=size}"/>
+
+                                                </TextBlock>
+
+                                                <TextBlock Style="{DynamicResource TextBlockBasket}">
+                                                    
+                                                <Run Text="{DynamicResource m_Color:}"/>
+                                                <Run Text="{Binding Path=color}"/>
+
+                                                </TextBlock>
+
+                                            </StackPanel>
+
+                                        </DataTemplate>
+
+                                    </GridViewColumn.CellTemplate>
+
+                                </GridViewColumn>
+
+                            </GridView>
+
+                        </ListView.View>
+
+                        </ListView>
+                        
+                    
+
+                </Border>
+             
+
+            </StackPanel>
+
+        </ScrollViewer>  
+
+    </Grid>
+        
+</Page>

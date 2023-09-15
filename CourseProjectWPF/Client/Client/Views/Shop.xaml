@@ -1,0 +1,41 @@
+﻿<Window x:Class="Client.Views.Shop" x:Name="windowShop"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Views="clr-namespace:Client.Views"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="LSD Clothing" 
+        Icon="C:\Users\User\Desktop\CourseProjectWPF\img\logo.ico"
+        MinHeight="800" MinWidth="1200" WindowState="Maximized">
+    
+    <Grid>
+
+        <Grid.RowDefinitions>
+            
+            <RowDefinition Height="87"/>
+            <RowDefinition/>
+            
+        </Grid.RowDefinitions>
+
+        
+        <Views:Header x:Name="Head" HorizontalAlignment="Center" Grid.Row="0" 
+                      OpenCatalog="Header_OpenCatalog" 
+                      OpenHome="Header_OpenHome" 
+                      OpenAboutUs="Header_OpenAboutUs" 
+                      OpenBasket="Header_OpenBasket" 
+                      OpenWhatsNew="Header_OpenWhatsNew" 
+                      OpenFavorites="Header_OpenFavorites" 
+                      OpenSearch="Header_OpenSearch" 
+                      OpenProfile="Head_OpenProfile"
+                      OpenDelivery="Head_OpenDelivery"/>
+
+
+        <Frame x:Name="MainFrame" 
+               NavigationUIVisibility="Hidden" 
+               Grid.Row="1"/>
+
+    </Grid>
+    
+</Window>

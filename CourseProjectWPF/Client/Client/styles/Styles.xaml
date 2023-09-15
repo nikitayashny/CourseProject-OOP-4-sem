@@ -1,0 +1,494 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ControlTemplate TargetType="Button" x:Key="btTemplate">
+        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Background="{TemplateBinding Background}">
+            <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}" >
+            </ContentControl>
+        </Border>
+    </ControlTemplate>
+
+    <Style x:Key="PaymentData" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Margin" Value="0 0 0 30"/>
+    </Style>
+
+    <Style x:Key="EngRus" TargetType="Button">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Width" Value="100"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="Black"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ExitButton" TargetType="Button">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="red"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ButtonOrCreate" TargetType="Button">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="#038300"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ButtonLogIn" TargetType="Button">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Height" Value="80"/>
+        <Setter Property="Width" Value="280"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="BorderBrush" Value="#038300"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Foreground" Value="#038300"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Duration="0:0:0.2"
+                                        Storyboard.TargetProperty="Background.Color" 
+                                        To="#038300">
+                        </ColorAnimation>
+                        <ColorAnimation Duration="0:0:0.2"
+                                        Storyboard.TargetProperty="Foreground.Color"
+                                        To="White">
+                        </ColorAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Duration="0:0:0.2"
+                                        Storyboard.TargetProperty="Background.Color"
+                                        To="White">
+                        </ColorAnimation>
+                        <ColorAnimation Duration="0:0:0.2"
+                                        Storyboard.TargetProperty="Foreground.Color"
+                                        To="#038300">
+                        </ColorAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="TextBlockLogin" TargetType="TextBlock">
+        <Setter Property="Width" Value="350"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Margin" Value="50"/>
+    </Style>
+
+    <Style x:Key="ImageLogin" TargetType="Image">
+        <Setter Property="Height" Value="132"/>
+        <Setter Property="Width" Value="252"/>
+        <Setter Property="Margin" Value="0 50 0 0"/>
+    </Style>
+
+    <Style x:Key="ButtonFavorites" TargetType="Button">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="109"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Background" Value="#40FFFFFF"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Margin" Value="0 -30 0 0"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#10FFFFFF"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ButtonCheckOut" TargetType="Button">
+        <Setter Property="Height" Value="76"/>
+        <Setter Property="Width" Value="289"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Margin" Value="0 40 0 0"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Black"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="LineBasket" TargetType="Border">
+        <Setter Property="Height" Value="3"/>
+        <Setter Property="Width" Value="320"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Margin" Value="0 100 0 0"/>
+    </Style>
+
+    <Style x:Key="BorderBasket" TargetType="Border">
+        <Setter Property="Height" Value="413"/>
+        <Setter Property="Width" Value="357"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Margin" Value="100 56 0 0"/>
+        <Setter Property="Padding" Value="30"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+
+    <Style x:Key="DeleteBasket" TargetType="Button">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="0 100 0 0"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Black"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="TextBlockBasket" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <Style x:Key="TextBlockFirstBasket" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="TextBlockThirdAboutUs" TargetType="TextBlock">
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Nunito"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Margin" Value="100"/>
+    </Style>
+
+    <Style x:Key="TextBlockSecondAboutUs" TargetType="TextBlock">
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Nunito"/>
+        <Setter Property="FontWeight" Value="Light"/>
+        <Setter Property="Margin" Value="50"/>
+    </Style>
+
+    <Style x:Key="ImageAboutUs" TargetType="Image">
+        <Setter Property="Width" Value="600"/>
+        <Setter Property="Height" Value="800"/>
+    </Style>
+
+    <Style x:Key="Heart" TargetType="Image">
+        <Setter Property="Width" Value="24"/>
+        <Setter Property="Height" Value="24"/>
+    </Style>
+
+    <Style x:Key="TextBlockFull" TargetType="TextBlock">
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="Margin" Value="0 10 0 0"/>
+    </Style>
+
+    <Style x:Key="TextBlockNameFull" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Margin" Value="0 100 0 0"/>
+    </Style>
+
+    <Style x:Key="PictureFull" TargetType="Image">
+        <Setter Property="Width" Value="341"/>
+        <Setter Property="Height" Value="510"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="PictureCatalog" TargetType="Image">
+        <Setter Property="Width" Value="220"/>
+        <Setter Property="Height" Value="285"/>
+    </Style>
+
+    <Style x:Key="TextBlockThirdBlock2" TargetType="TextBlock">
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="Foreground" Value="BLack"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Nunito"/>
+        <Setter Property="FontWeight" Value="Thin"/>
+        <Setter Property="Margin" Value="20"/>
+    </Style>
+
+    <Style x:Key="TextBlockThirdBlock" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="50"/>
+        <Setter Property="Foreground" Value="BLack"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="60"/>
+    </Style>
+
+    <Style x:Key="ImageThirdBlock" TargetType="Image">
+        <Setter Property="Width" Value="600"/>
+        <Setter Property="Height" Value="805"/>
+    </Style>
+
+    <Style x:Key="ImageSecondBlock" TargetType="Image">
+        <Setter Property="Width" Value="600"/>
+        <Setter Property="Height" Value="780"/>
+    </Style>
+
+    <Style x:Key="TextBlockSecondBlock" TargetType="TextBlock">
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontSize" Value="50"/>
+        <Setter Property="Foreground" Value="BLack"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Nunito"/>
+        <Setter Property="Padding" Value="50 200 50 50"/>
+    </Style>
+
+    <Style x:Key="StackPanelSecondBlock" TargetType="StackPanel">
+        <Setter Property="Width" Value="600"/>
+        <Setter Property="Height" Value="780"/>
+        <Setter Property="Background" Value="White"/>
+    </Style>
+
+    <Style x:Key="ImageFirstBlock" TargetType="Image">
+        <Setter Property="Width" Value="718"/>
+        <Setter Property="Height" Value="693"/>
+    </Style>
+
+    <Style x:Key="TextBlockFirstBlock" TargetType="TextBlock">
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontSize" Value="75"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Nunito"/>
+        <Setter Property="Padding" Value="0 100 0 0"/>
+    </Style>
+
+    <Style x:Key="StackPanelFirstBlock" TargetType="StackPanel">
+        <Setter Property="Width" Value="600"/>
+        <Setter Property="Height" Value="693"/>
+        <Setter Property="Background" Value="#6E5843"/>
+    </Style>
+
+    <Style x:Key="ScrollViewerDefault" TargetType="ScrollViewer">
+        <Setter Property="Width" Value="1200"/>
+        <Setter Property="Grid.Row" Value="1"/>
+    </Style>
+
+    <Style x:Key="ButtonBachToShopping" TargetType="Button">
+        <Setter Property="Background" Value="#00000000"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Margin" Value="0 10 0 0"/>
+        <Setter Property="MinWidth" Value="10"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="FontWeight" Value="SemiBold"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ButtonAddToFavorite" TargetType="Button">
+        <Setter Property="Height" Value="76"/>
+        <Setter Property="Width" Value="76"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="3"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Margin" Value="10 0 0 0"/>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Duration="0:0:0.2"
+                                        Storyboard.TargetProperty="Background.Color"
+                                        To="LightGray">
+                        </ColorAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Duration="0:0:0.2"
+                                        Storyboard.TargetProperty="Background.Color"
+                                        To="White">
+                        </ColorAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ButtonAddToBasket" TargetType="Button">
+        <Setter Property="Height" Value="76"/>
+        <Setter Property="Width" Value="289"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="3"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Duration="0:0:0.2"
+                                        Storyboard.TargetProperty="Background.Color"
+                                        To="Black">
+                        </ColorAnimation>
+                        <ColorAnimation Duration="0:0:0.2"
+                                        Storyboard.TargetProperty="Foreground.Color"
+                                        To="White">
+                        </ColorAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Duration="0:0:0.2"
+                                        Storyboard.TargetProperty="Background.Color"
+                                        To="White">
+                        </ColorAnimation>
+                        <ColorAnimation Duration="0:0:0.2"
+                                        Storyboard.TargetProperty="Foreground.Color"
+                                        To="Black">
+                        </ColorAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ButtonToBold" TargetType="Button">
+        <Setter Property="FontWeight" Value="Thin"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Margin" Value="0 50 0 0"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="FontWeight" Value="SemiBold"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ButtonShopNow" TargetType="Button">
+        <Setter Property="Margin" Value="0 50 0 0"/>
+        <Setter Property="Background" Value="#6E5843"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="Width" Value="300"/>
+        <Setter Property="Height" Value="130"/>
+        <Setter Property="FontSize" Value="35"/>
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Duration="0:0:0.2"
+                                        Storyboard.TargetProperty="Background.Color" 
+                                        To="#40FFFFFF">
+                        </ColorAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Duration="0:0:0.2"
+                                        Storyboard.TargetProperty="Background.Color"
+                                        To="#6E5843">
+                        </ColorAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ButtonImage" TargetType="Button">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Height" Value="87" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="BorderBrush" Value="Black"/>
+                <Setter Property="Background" Value="White"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="BorderBrush" Value="Gray"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ButtonHeader" TargetType="Button">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Width" Value="180"/>
+        <Setter Property="Height" Value="87" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="BorderBrush" Value="Black"/>
+                <Setter Property="Background" Value="White"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="BorderBrush" Value="Gray"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>
